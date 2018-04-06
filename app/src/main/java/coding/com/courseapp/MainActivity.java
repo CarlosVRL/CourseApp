@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,29 +18,18 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize the activity
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_note);
 
         // Add a toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Add a floating action button
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TextView textView = findViewById(R.id.text_value);
-                String stringValue = textView.getText().toString();
-                int originalValue = Integer.parseInt(stringValue);
-                int newValue = MyWorker.doubleTheValue(originalValue);
+        // Add the spinner
+        Spinner spinnerCourses = (Spinner) findViewById(R.id.spinner_courses);
 
-                textView.setText(Integer.toString(newValue));
 
-                Snackbar.make(view, "Change value " + originalValue +
-                                    " to " + newValue, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+
     }
 
     @Override
